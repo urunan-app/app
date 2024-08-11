@@ -1,6 +1,37 @@
 import { Elysia, t } from "elysia"
+import { cors } from "@elysiajs/cors"
 
 const app = new Elysia()
+  .use(
+    cors({
+      credentials: true,
+      allowedHeaders: ["content-type", "x-urunan-internal-token"],
+      methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"],
+      origin: ({ headers }): boolean => {
+        const origin = headers.get("origin")
+
+        if (!origin) return false
+
+        return true
+
+        let domainOnly
+        try {
+          const url = new URL(origin)
+          domainOnly = url.hostname
+        } catch (e) {
+          return false
+        }
+
+        const allowedOrigins = ["urunan.app", "localhost", "vercel.app"]
+
+        const isAllowed = allowedOrigins.some((allowed) =>
+          domainOnly.endsWith(allowed)
+        )
+
+        return isAllowed
+      },
+    })
+  )
   .get(
     "/",
     () => ({
