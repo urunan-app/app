@@ -10,9 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@elysiajs/eden": "^1.1.2",
+    "api": "workspace:*",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "api": "workspace:*"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",

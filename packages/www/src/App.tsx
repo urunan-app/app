@@ -1,10 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react"
+import reactLogo from "./assets/react.svg"
+import viteLogo from "/vite.svg"
+import "./App.css"
+import { api } from "./api"
 
 function App() {
   const [count, setCount] = useState(0)
+  const [message, setMessage] = useState("")
+
+  const getData = async () => {
+    try {
+      const { data } = await api.index.get()
+      if (data) {
+        setMessage(data.message)
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  React.useEffect(() => {
+    getData()
+  }, [])
 
   return (
     <>
@@ -12,6 +29,7 @@ function App() {
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
+        <p>{message}</p>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>

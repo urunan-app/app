@@ -4,7 +4,7 @@ const app = new Elysia()
   .get(
     "/",
     () => ({
-      message: "Hello, Elysia!",
+      message: "Hello, bro!",
     }),
     {
       response: t.Object({
