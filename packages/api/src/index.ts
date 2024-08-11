@@ -12,11 +12,10 @@ const app = new Elysia()
 
         if (!origin) return false
 
-        return true
-
         let domainOnly
         try {
           const url = new URL(origin)
+          return true
           domainOnly = url.hostname
         } catch (e) {
           return false
