@@ -2,6 +2,9 @@
 
 To install dependencies:
 
+1. Install Bun
+2. Install [Nx](https://nx.dev/getting-started/installation)
+
 ```bash
 bun install
 ```
