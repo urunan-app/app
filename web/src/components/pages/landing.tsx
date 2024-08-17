@@ -22,7 +22,7 @@ const LandingPage: React.FC = () => {
           <h1 className="lg:text-5xl  text-4xl font-semibold tracking-tighter text-white font-sans text-center text-balance lg:w-2/5 md:w-2/3 w-full">
             Cari teman urunan kini lebih mudah dan nyaman
           </h1>
-          <p className="lg:text-xl xl:w-1/3 text-lg md:w-2/3 w-full text-center text-zinc-500">
+          <p className="lg:text-xl xl:w-1/3 text-lg md:w-2/3 tracking-tight w-full text-center text-zinc-500">
             Urunan merupakan social marketplace untuk mencari teman urunan
             membership akun social media terkini
           </p>
