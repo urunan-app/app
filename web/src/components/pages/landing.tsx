@@ -18,7 +18,7 @@ const LandingPage: React.FC = () => {
         </button>
       </div>
       <div className="flex items-center justify-center h-full w-full rounded-lg bg-zinc-800/50">
-        <div className="flex gap-10 items-center flex-col m-0 w-full md:p-5 sm:p-3 p-2">
+        <div className="flex gap-10 items-center flex-col m-0 w-full md:p-5 p-3">
           <h1 className="lg:text-5xl  text-4xl font-semibold tracking-tighter text-white font-sans text-center text-balance lg:w-2/5 md:w-2/3 w-full">
             Cari teman urunan kini lebih mudah dan nyaman
           </h1>
