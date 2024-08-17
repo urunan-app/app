@@ -1,6 +1,6 @@
 import { ConsoleLogWriter, DefaultLogger } from "drizzle-orm"
 import { prettify } from "sql-log-prettifier"
-import { getLogger } from "../libs/logger"
+import { Log } from "../libs/logger"
 
 const loggerSettings = {
   format: false,
@@ -27,11 +27,10 @@ const loggerSettings = {
   },
 }
 
-const pinoLogger = getLogger("db")
-
 class DbLogger extends ConsoleLogWriter {
   write(message: string): void {
-    pinoLogger.info(prettify(message, loggerSettings))
+    const logger = new Log("db")
+    logger.info(prettify(message, loggerSettings))
   }
 }
 
