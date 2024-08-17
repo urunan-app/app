@@ -18,7 +18,6 @@ const app = new Elysia()
         let domainOnly
         try {
           const url = new URL(origin)
-          return true
           domainOnly = url.hostname
         } catch (e) {
           return false
@@ -37,7 +36,7 @@ const app = new Elysia()
   .get(
     "/",
     () => ({
-      message: "Hello, bro!",
+      message: "Hello, world!",
     }),
     {
       response: t.Object({
