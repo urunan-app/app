@@ -2,7 +2,7 @@ import React from "react"
 
 const LandingPage: React.FC = () => {
   return (
-    <section className="relative flex gap-4 items-center flex-col min-h-dvh text-white min-w-dvw h-screen bg-zinc-900 p-5">
+    <section className="relative flex gap-4 items-center flex-col h-dvh text-white min-w-dvw bg-zinc-900 p-5">
       <div className="mx-0 flex items-center justify-between w-full">
         <a
           href="/"
