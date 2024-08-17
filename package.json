@@ -3,12 +3,13 @@
   "private": true,
   "workspaces": [
     "api",
-    "packages/*"
+    "web"
   ],
   "scripts": {
     "clean": "rm -rf node_modules packages/*/node_modules bun.lockb packages/*/bun.lockb",
     "api:dev": "bun --filter 'api' dev",
-    "web:dev": "bun --filter 'web' dev"
+    "web:dev": "bun --filter 'web' dev",
+    "dev": "bun run api:dev & bun run web:dev"
   },
   "dependencies": {
     "nx": "^19.5.7"
