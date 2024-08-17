@@ -19,7 +19,7 @@ const LandingPage: React.FC = () => {
       </div>
       <div className="flex items-center justify-center h-full w-full rounded-lg bg-zinc-800/50">
         <div className="flex gap-10 items-center flex-col m-0 w-full md:p-5 sm:p-3 p-2">
-          <h1 className="lg:text-5xl  text-4xl font-semibold lg:tracking-tighter tracking-tight text-white font-sans text-center text-balance lg:w-2/5 md:w-2/3 w-full">
+          <h1 className="lg:text-5xl  text-4xl font-semibold tracking-tighter text-white font-sans text-center text-balance lg:w-2/5 md:w-2/3 w-full">
             Cari teman urunan kini lebih mudah dan nyaman
           </h1>
           <p className="lg:text-xl xl:w-1/3 text-lg md:w-2/3 w-full text-center text-zinc-500">
