@@ -1,5 +1,8 @@
 import { Elysia, t } from "elysia"
 import { cors } from "@elysiajs/cors"
+import { Log } from "./libs/logger"
+
+const log = new Log("api")
 
 const app = new Elysia()
   .use(
@@ -46,6 +49,4 @@ const app = new Elysia()
 
 export type Api = typeof app
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-)
+log.info(`API lo is running at ${app.server?.hostname}:${app.server?.port}`)
