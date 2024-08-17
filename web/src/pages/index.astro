@@ -1,22 +1,16 @@
 ---
-
+import Layout from "../components/layouts/layout.astro"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body class="min-h-dvh min-w-dvw h-screen bg-zinc-900 p-5">
+<Layout title="hi">
+	<section class="min-h-dvh min-w-dvw h-screen bg-zinc-900 p-5">
     <div class="flex items-center justify-center h-full w-full rounded-lg bg-zinc-800">
       <div class="flex flex-col m-0 gap-2">
-        <h1 class="text-lg text-white">Cari teman urunan lebih mudah dan nyaman</h1>
+        <h1 class="text-2xl text-white font-mono">What will you ship next?</h1>
+        <h1 class="text-2xl text-white font-sans">What will you ship next?</h1>
       </div>
 
     </div>
 
-	</body>
-</html>
+	</section>
+</Layout>

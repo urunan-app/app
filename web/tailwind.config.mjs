@@ -1,5 +1,3 @@
-import "@fontsource/geist-mono"
-import "@fontsource/geist-sans"
 import defaultTheme from "tailwindcss/defaultTheme"
 
 /** @type {import('tailwindcss').Config} */
