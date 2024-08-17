@@ -4,12 +4,12 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts | npx pino-pretty",
+    "dev": "bun --watch run src/index.ts | bunx pino-pretty",
     "db:drop": "drizzle-kit drop --config ./drizzle.config.ts",
     "db:push": "drizzle-kit push --config ./drizzle.config.ts",
     "db:migrate:create": "drizzle-kit generate --config ./drizzle.config.ts",
     "db:migrate:run": "drizzle-kit migrate --config ./drizzle.config.ts",
-    "db:seed": "bun src/db/seed.ts | npx pino-pretty",
+    "db:seed": "bun src/db/seed.ts | bunx pino-pretty",
     "docker:up": "docker-compose -p urunan-api up -d",
     "docker:down": "docker-compose down"
   },
