@@ -1,51 +1,21 @@
-import { Elysia, t } from "elysia"
-import { cors } from "@elysiajs/cors"
+import { createAPI } from "./api"
+import { Database } from "./db"
+
 import { Log } from "./libs/logger"
 
-const log = new Log("api")
+const log = new Log("api").getLogger()
 
-const app = new Elysia()
-  .use(
-    cors({
-      credentials: true,
-      allowedHeaders: ["content-type", "x-urunan-internal-token"],
-      methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"],
-      origin: ({ headers }): boolean => {
-        const origin = headers.get("origin")
+const api = createAPI()
 
-        if (!origin) return false
+const { connect } = new Database()
 
-        let domainOnly
-        try {
-          const url = new URL(origin)
-          domainOnly = url.hostname
-        } catch (e) {
-          return false
-        }
+try {
+  connect()
+  api.listen(3000)
+  log.info(`API is running at ${api.server?.hostname}:${api.server?.port}`)
+} catch (error) {
+  log.error(error)
+  process.exit(1)
+}
 
-        const allowedOrigins = ["urunan.app", "localhost", "vercel.app"]
-
-        const isAllowed = allowedOrigins.some((allowed) =>
-          domainOnly.endsWith(allowed)
-        )
-
-        return isAllowed
-      },
-    })
-  )
-  .get(
-    "/",
-    () => ({
-      message: "Hello, world!",
-    }),
-    {
-      response: t.Object({
-        message: t.String(),
-      }),
-    }
-  )
-  .listen(3000)
-
-export type Api = typeof app
-
-log.info(`API lo is running at ${app.server?.hostname}:${app.server?.port}`)
+export type Api = typeof api

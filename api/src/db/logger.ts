@@ -29,7 +29,7 @@ const loggerSettings = {
 
 class DbLogger extends ConsoleLogWriter {
   write(message: string): void {
-    const logger = new Log("db")
+    const logger = new Log("db").getLogger()
     logger.info(prettify(message, loggerSettings))
   }
 }
