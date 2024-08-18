@@ -6,6 +6,7 @@ import {
   productPlatformsQuery,
 } from "./product-platform.schema"
 import { ProductPlatformService } from "./product-platform.service"
+import { InternalMiddleware } from "../middlewares/internal"
 
 export class ProductPlatformController extends Controller {
   private service: ProductPlatformService
@@ -23,7 +24,7 @@ export class ProductPlatformController extends Controller {
       .decorate({
         logger: this.log,
         service: this.service,
-        /*         middleware: (request: Request) => new Middleware(request), */
+        middleware: (request: Request) => new InternalMiddleware(request),
       })
       .get(
         "",
@@ -88,7 +89,7 @@ export class ProductPlatformController extends Controller {
               message: t.String(),
             }),
           }),
-          /*           beforeHandle: (ctx) => {
+          beforeHandle: (ctx) => {
             const isInternal = ctx.middleware(ctx.request).isRequestInternal()
 
             if (!isInternal) {
@@ -100,7 +101,7 @@ export class ProductPlatformController extends Controller {
                 },
               }
             }
-          }, */
+          },
         }
       )
       .get(
@@ -165,7 +166,7 @@ export class ProductPlatformController extends Controller {
               message: t.String(),
             }),
           }),
-          /*           beforeHandle: (ctx) => {
+          beforeHandle: (ctx) => {
             const isInternal = ctx.middleware(ctx.request).isRequestInternal()
 
             if (!isInternal) {
@@ -176,7 +177,7 @@ export class ProductPlatformController extends Controller {
                 },
               }
             }
-          }, */
+          },
         }
       )
       .delete(
@@ -204,7 +205,7 @@ export class ProductPlatformController extends Controller {
               message: t.String(),
             }),
           }),
-          /*           beforeHandle: (ctx) => {
+          beforeHandle: (ctx) => {
             const isInternal = ctx.middleware(ctx.request).isRequestInternal()
 
             if (!isInternal) {
@@ -215,7 +216,7 @@ export class ProductPlatformController extends Controller {
                 },
               }
             }
-          }, */
+          },
         }
       )
       .post(
@@ -243,7 +244,7 @@ export class ProductPlatformController extends Controller {
               message: t.String(),
             }),
           }),
-          /*           beforeHandle: (ctx) => {
+          beforeHandle: (ctx) => {
             const isInternal = ctx.middleware(ctx.request).isRequestInternal()
 
             if (!isInternal) {
@@ -254,7 +255,7 @@ export class ProductPlatformController extends Controller {
                 },
               }
             }
-          }, */
+          },
         }
       )
   }

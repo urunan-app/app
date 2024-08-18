@@ -22,7 +22,7 @@ export class ProductPlatformService extends Service {
     const checkIfExist = await this.repository.checkExistKey(payload.key)
 
     if (checkIfExist) {
-      throw new Error(`Product Platform with key ${payload.key} already exist`)
+      throw new Error(`Product platform with key ${payload.key} already exist`)
     }
 
     return this.repository.create(payload)
@@ -52,7 +52,7 @@ export class ProductPlatformService extends Service {
     const checkIfDeleted = await this.repository.checkIfDeleted(query)
 
     if (checkIfDeleted) {
-      throw new Error(`Product Platform with id ${query.id} is already deleted`)
+      throw new Error(`Product platform with id ${query.id} is already deleted`)
     }
 
     return this.repository.deleteOne(query)
@@ -65,6 +65,6 @@ export class ProductPlatformService extends Service {
       return this.repository.restoreOne(query)
     }
 
-    throw new Error(`Product Platform with id ${query.id} is not deleted`)
+    throw new Error(`Product platform with id ${query.id} is not deleted`)
   }
 }

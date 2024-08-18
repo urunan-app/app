@@ -68,7 +68,7 @@ export class APIBase {
       .trace(({ onBeforeHandle, set }) => {
         onBeforeHandle(({ onStop }) => {
           onStop(({ elapsed }) => {
-            set.headers["X-Elapsed"] = elapsed.toString()
+            set.headers["x-server-elapsed"] = elapsed.toString()
           })
         })
       })
