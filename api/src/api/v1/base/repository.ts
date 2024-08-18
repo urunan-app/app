@@ -8,7 +8,11 @@ export class Repository {
 
   constructor() {
     const { db } = new Database()
-    this.log = (name: string) => new Log(`repository:${name}`).getLogger()
+    const createLog = (name: string) => {
+      const { log } = new Log(`repository:${name}`)
+      return log
+    }
+    this.log = createLog
     this.db = db
   }
 }

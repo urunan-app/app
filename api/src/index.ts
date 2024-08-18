@@ -3,7 +3,7 @@ import { Database } from "./db"
 
 import { Log } from "./libs/logger"
 
-const log = new Log("api").getLogger()
+const { log } = new Log("api")
 
 const api = createAPI()
 

@@ -1,13 +1,11 @@
 import pino, { BaseLogger } from "pino"
 
-type LoggerType = pino.Logger
-type LogLevel = "info" | "error" | "warn" | "debug" | "trace" | "fatal"
-
 export class Log {
-  getLogger: () => BaseLogger
+  log: BaseLogger
 
   constructor(key: string) {
-    this.getLogger = () => this.createLogger(key)
+    this.log = this.createLogger(key)
+    this.createLogger(key)
   }
 
   protected createLogger(key: string): BaseLogger {
