@@ -2,8 +2,19 @@ import { cors } from "@elysiajs/cors"
 import { serverTiming } from "@elysiajs/server-timing"
 import Elysia from "elysia"
 import { swagger } from "@elysiajs/swagger"
+import { Database } from "@/db"
 
 export class APIBase {
+  protected database: Database
+  constructor() {
+    this.database = new Database()
+    this.initDatabase()
+  }
+
+  protected initDatabase() {
+    this.database.connect()
+  }
+
   public create() {
     return new Elysia()
       .onError(({ code, error, set }) => {

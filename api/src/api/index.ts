@@ -1,3 +1,4 @@
+import { Log } from "@/libs/logger"
 import { APIBase } from "./base"
 import { APIV1 } from "./v1"
 
@@ -14,7 +15,8 @@ export class API {
   }
 }
 
-export const createAPI = () => {
+export const createAPI = (key?: string) => {
+  const { log } = new Log(key || "api")
   const api = new API()
-  return api.create()
+  return { api: api.create(), log }
 }
